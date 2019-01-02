@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
 
     LoginFragment loginFragment;
     RegisterFragment registerFragment;
-    FireBaseAdmin fireBaseAdmin;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,14 +26,16 @@ public class MainActivity extends AppCompatActivity {
 
         loginFragment.setListener(mainActivityEvents);
         registerFragment.setListener(mainActivityEvents);
+        DataHolder.instance.fireBaseAdmin.setListener(mainActivityEvents);
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.show(loginFragment);
         transaction.hide(registerFragment);
         transaction.commit();
 
-        fireBaseAdmin = new FireBaseAdmin();
-        fireBaseAdmin.setListener(mainActivityEvents);
+        //Hacer el Login Automático
+        // DataHolder.instance.fireBaseAdmin.loginConEmailYPassword("nacholagorta@hotmail.com", "123456", this);
+
 
     }
 }
@@ -47,7 +49,7 @@ class MainActivityEvents implements LoginFragmentListener, RegisterFragmentListe
 
     @Override
     public void loginButtonClicked(String sUser, String sPass) {
-        mainActivity.fireBaseAdmin.loginConEmailYPassword(sUser, sPass, mainActivity);
+        DataHolder.instance.fireBaseAdmin.loginConEmailYPassword(sUser, sPass, mainActivity);
     }
 
     @Override
@@ -61,7 +63,7 @@ class MainActivityEvents implements LoginFragmentListener, RegisterFragmentListe
     @Override
     public void btnConfirmaRegistroClicked(String sUser, String sPass) {
         Log.v("MAINACTIVITYEVENTS", "Datos del registro " + sUser + " --- " + sPass);
-        mainActivity.fireBaseAdmin.registerConEmailYPassword(sUser, sPass, mainActivity);
+        DataHolder.instance.fireBaseAdmin.registerConEmailYPassword(sUser, sPass, mainActivity);
     }
 
     @Override
