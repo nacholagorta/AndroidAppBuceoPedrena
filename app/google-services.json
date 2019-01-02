@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "208777654180",
+    "firebase_url": "https://androidappbuceopedrena.firebaseio.com",
+    "project_id": "androidappbuceopedrena",
+    "storage_bucket": "androidappbuceopedrena.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:208777654180:android:e416d52911a80184",
+        "android_client_info": {
+          "package_name": "com.example.pccom.androidappbuceopedrena"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "208777654180-s8uemp3dbqn6lt2pp4h6tovlgeuqvn59.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqLeAQ_OGn3kBQK-Z736TrpTjC3mX-WN0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
