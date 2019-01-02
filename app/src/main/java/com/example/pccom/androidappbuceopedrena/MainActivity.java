@@ -1,6 +1,7 @@
 package com.example.pccom.androidappbuceopedrena;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -17,7 +18,12 @@ public class MainActivity extends AppCompatActivity {
         MainActivityEvents mainActivityEvents = new MainActivityEvents(this);
 
         loginFragment.setListener(mainActivityEvents);
-    registerFragment.setListener(mainActivityEvents);
+        registerFragment.setListener(mainActivityEvents);
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.show(loginFragment);
+        transaction.hide(registerFragment);
+        transaction.commit();
     }
 }
 
@@ -35,7 +41,10 @@ class MainActivityEvents implements LoginFragmentListener, RegisterFragmentListe
 
     @Override
     public void registerButtonClicked() {
-
+        FragmentTransaction transaction = mainActivity.getSupportFragmentManager().beginTransaction();
+        transaction.hide(mainActivity.loginFragment);
+        transaction.show(mainActivity.registerFragment);
+        transaction.commit();
     }
 
     @Override
@@ -45,6 +54,9 @@ class MainActivityEvents implements LoginFragmentListener, RegisterFragmentListe
 
     @Override
     public void btnCancelaRegistroClicked() {
-
+ FragmentTransaction transaction = mainActivity.getSupportFragmentManager().beginTransaction();
+ transaction.show(mainActivity.loginFragment);
+ transaction.hide(mainActivity.registerFragment);
+ transaction.commit();
     }
 }

@@ -36,14 +36,14 @@
                 android:layout_width="170dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Registro" />
+                android:text="@string/registro" />
 
             <Button
                 android:id="@+id/btnCancelaReg"
                 android:layout_width="168dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Cancelar" />
+                android:text="@string/cancelar" />
         </LinearLayout>
     </LinearLayout>
 </FrameLayout>
