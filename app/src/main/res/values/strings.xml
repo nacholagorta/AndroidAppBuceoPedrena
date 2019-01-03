@@ -9,4 +9,8 @@
     <string name="login">LOGIN</string>
     <string name="strPassword">Password</string>
     <string name="strEmail">Email</string>
+    <string name="nav_salidas">Salidas</string>
+    <string name="nav_instructores">Instructores</string>
+    <string name="nav_misSalidas">Mis Salidas</string>
+    <string name="nav_perfil">Perfil</string>
 </resources>
