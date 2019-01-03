@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 public class LoginFragment extends Fragment {
@@ -60,11 +61,16 @@ class LoginFragmentEvents implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+
         if (v.getId() == this.loginFragment.btnLogin.getId()) {
+            if (this.loginFragment.etEmail.getText().toString().equals("") || this.loginFragment.etPass.getText().toString().equals("")) {
+                Toast.makeText(this.loginFragment.getContext(), "Introduzca ambos campos por favor", Toast.LENGTH_LONG).show();
+            } else {
+                this.loginFragment.listener.loginButtonClicked(this.loginFragment.etEmail.getText().toString(),
+                        this.loginFragment.etPass.getText().toString());
+            }
 
 
-            this.loginFragment.listener.loginButtonClicked(this.loginFragment.etEmail.getText().toString(),
-            this.loginFragment.etPass.getText().toString());
         } else if (v.getId() == this.loginFragment.btnRegister.getId()) {
             this.loginFragment.listener.registerButtonClicked();
         }

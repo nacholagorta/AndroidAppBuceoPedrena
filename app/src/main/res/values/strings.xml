@@ -7,4 +7,6 @@
     <string name="registro">Registro</string>
     <string name="register">REGISTER</string>
     <string name="login">LOGIN</string>
+    <string name="strPassword">Password</string>
+    <string name="strEmail">Email</string>
 </resources>

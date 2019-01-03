@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 public class RegisterFragment extends Fragment {
@@ -62,11 +63,17 @@ class RegisterFragmentEvents implements View.OnClickListener {
     @Override
     public void onClick(View v) {
     if(v.getId()==this.registerFragment.btnConfirmaRegistro.getId()){
-    this.registerFragment.listener.btnConfirmaRegistroClicked(
-            registerFragment.etEmailReg.getText().toString(),
-            registerFragment.etPasswordReg.getText().toString());
+        if (this.registerFragment.etEmailReg.getText().toString().equals("") || this.registerFragment.etPasswordReg.getText().toString().equals("")) {
+            Toast.makeText(this.registerFragment.getContext(), "Introduzca ambos campos por favor", Toast.LENGTH_LONG).show();
+        } else {
+            this.registerFragment.listener.btnConfirmaRegistroClicked(
+                    registerFragment.etEmailReg.getText().toString(),
+                    registerFragment.etPasswordReg.getText().toString());
+        }
         }
         if(v.getId()==this.registerFragment.btnCancelaRegistro.getId()){
+            registerFragment.etEmailReg.setText("");
+            registerFragment.etPasswordReg.setText("");
             this.registerFragment.listener.btnCancelaRegistroClicked();
         }
     }
