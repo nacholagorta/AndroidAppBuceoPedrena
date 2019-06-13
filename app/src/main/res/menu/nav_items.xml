@@ -7,10 +7,6 @@
         android:icon="@drawable/baseline_directions_boat_black_24dp"
         android:title="@string/nav_salidas" />
     <item
-        android:id="@+id/nav_instructores"
-        android:icon="@drawable/baseline_supervisor_account_black_24dp"
-        android:title="@string/nav_instructores" />
-    <item
         android:id="@+id/nav_mis_salidas"
         android:icon="@drawable/baseline_book_black_24dp"
         android:title="@string/nav_misSalidas" />

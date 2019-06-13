@@ -1,14 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
     tools:context=".FragmentNavigationBar.SalidasFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Fragment Salidas" />
+        android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="126dp"
+            android:layout_height="27dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="48dp"
+            android:text="Instructor"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnDate" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="126dp"
+            android:layout_height="27dp"
+            android:layout_marginTop="44dp"
+            android:text="Hora"
+            app:layout_constraintStart_toEndOf="@+id/textView8"
+            app:layout_constraintTop_toBottomOf="@+id/tvSelectedDate" />
+
+        <TextView
+            android:id="@+id/tvSelectedDate"
+            android:layout_width="169dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="16dp"
+            android:text="FECHA"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/btnDate"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnDate"
+            android:layout_width="157dp"
+            android:layout_height="62dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="44dp"
+            android:text="Seleccionar  fecha"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ListView
+            android:id="@+id/list_salidas"
+            android:layout_width="421dp"
+            android:layout_height="282dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="44dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.529"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="126dp"
+            android:layout_height="27dp"
+            android:layout_marginTop="48dp"
+            android:text="Lugar"
+            app:layout_constraintStart_toEndOf="@+id/textView11"
+            app:layout_constraintTop_toBottomOf="@+id/btnDate" />
+
+    </android.support.constraint.ConstraintLayout>
 </FrameLayout>
