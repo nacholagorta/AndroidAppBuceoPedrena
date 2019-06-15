@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -20,7 +21,7 @@ import java.net.URLEncoder;
 public class BackgroundWorker extends AsyncTask<String, Void, String> {
     Context context;
     AlertDialog alertDialog;
-    BackgroundWorker (Context ctx){
+    public BackgroundWorker (Context ctx){
         context = ctx;
     }
     @Override
@@ -28,6 +29,7 @@ public class BackgroundWorker extends AsyncTask<String, Void, String> {
         String type = params[0];
 
         String login_url = "http://192.168.1.117/android_buceopedrena/login.php";
+        String get_salidas_url = "http://192.168.1.117/android_buceopedrena/get_salidas.php";
         if (type.equals("login")){
             try {
                 String email = params[1];
@@ -62,6 +64,8 @@ public class BackgroundWorker extends AsyncTask<String, Void, String> {
                 e.printStackTrace();
             }
         }
+
+
         return null;
     }
 
