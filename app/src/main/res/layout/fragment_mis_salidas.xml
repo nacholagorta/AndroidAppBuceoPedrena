@@ -18,7 +18,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
-            android:text="PROXIMAMENTE"
+            android:text="@string/proximamente"
             android:textAlignment="center"
             android:textSize="36sp"
             app:layout_constraintBottom_toBottomOf="parent"

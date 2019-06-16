@@ -159,11 +159,11 @@ public class PerfilFragment extends Fragment {
 
                     User usuario = new User();
                     JSONObject dataobj = dataArray.getJSONObject(i);
-                    usuario.setNombre_user(dataobj.getString("Nombre"));
-                    usuario.setApellido_user(dataobj.getString("Apellidos"));
-                    usuario.setTelefono_user(dataobj.getString("Telefono"));
-                    usuario.setDni_user(dataobj.getString("DNI"));
-                    usuario.setTitulacion_user(dataobj.getString("Titulacion"));
+                    usuario.setNombre_user("Nombre: "+dataobj.getString("Nombre"));
+                    usuario.setApellido_user("Apellido: "+dataobj.getString("Apellidos"));
+                    usuario.setTelefono_user("Teléfono: "+dataobj.getString("Telefono"));
+                    usuario.setDni_user("DNI: "+dataobj.getString("DNI"));
+                    usuario.setTitulacion_user("Titulacion: "+dataobj.getString("Titulacion"));
                     userArrayList.add(usuario);
 
                 }
@@ -208,6 +208,7 @@ public class PerfilFragment extends Fragment {
         return "No data";
     }
 
+    /*Métodos para mostrar un progreso de carga de los JSON*/
     public static void removeSimpleProgressDialog() {
         try {
             if (mProgressDialog != null) {

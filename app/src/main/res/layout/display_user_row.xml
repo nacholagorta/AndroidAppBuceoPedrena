@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="600dp"
+    android:layout_height="900dp"
     android:background="@drawable/gradient_background">
 
     <TextView
@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
         android:layout_marginTop="76dp"
-        android:text="Juan Antonio"
+        android:text="@string/nombre"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -21,9 +21,9 @@
         android:id="@+id/tvApellidoUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="156dp"
+        android:layout_marginStart="216dp"
         android:layout_marginTop="76dp"
-        android:text="Pascual"
+        android:text="@string/apellido"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,9 +31,9 @@
         android:id="@+id/tvTelefonoUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="160dp"
-        android:text="918504698"
+        android:layout_marginStart="216dp"
+        android:layout_marginTop="120dp"
+        android:text="@string/tel_fono"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -41,9 +41,9 @@
         android:id="@+id/tvDNIUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="268dp"
-        android:layout_marginTop="76dp"
-        android:text="534253498D"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="120dp"
+        android:text="@string/dni"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -51,9 +51,9 @@
         android:id="@+id/tvTitulacionUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="172dp"
-        android:layout_marginTop="160dp"
-        android:text="PADI"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="164dp"
+        android:text="@string/titulaci_n"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

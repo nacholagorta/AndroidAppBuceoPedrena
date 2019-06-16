@@ -13,4 +13,19 @@
     <string name="nav_instructores">Instructores</string>
     <string name="nav_misSalidas">Mis Salidas</string>
     <string name="nav_perfil">Perfil</string>
+    <string name="hora">Hora</string>
+    <string name="lugar">Lugar</string>
+    <string name="instructor">Instructor</string>
+    <string name="titulaci_n">Titulación</string>
+    <string name="dni">DNI</string>
+    <string name="tel_fono">Teléfono</string>
+    <string name="apellido">Apellido</string>
+    <string name="nombre">Nombre</string>
+    <string name="proximamente">PROXIMAMENTE</string>
+    <string name="seleccionar_fecha">Seleccionar fecha</string>
+    <string name="fecha_seleccionada">FECHA SELECCIONADA</string>
+    <string name="log_in">Log In</string>
+    <string name="contrase_a">Contraseña</string>
+    <string name="email">Email</string>
+    <string name="buceo_pedre_a">Buceo Pedreña</string>
 </resources>

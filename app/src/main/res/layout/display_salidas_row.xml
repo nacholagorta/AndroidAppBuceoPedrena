@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
+    android:layout_height="300dp"
     android:background="@drawable/gradient_background">
 
     <TextView
         android:id="@+id/tv_instructor"
         android:layout_width="130dp"
-        android:text="Keko"
+        android:text="@string/instructor"
         android:gravity="center"
         android:layout_height="match_parent" />
 
     <TextView
         android:id="@+id/tv_lugar"
-        android:layout_width="190dp"
-        android:text="La Catedral"
+        android:layout_width="150dp"
+        android:text="@string/lugar"
         android:layout_toEndOf="@+id/tv_instructor"
         android:gravity="center_vertical"
         android:layout_height="match_parent" />
@@ -22,7 +22,7 @@
     <TextView
         android:id="@+id/tv_hora"
         android:layout_width="90dp"
-        android:text="11:30"
+        android:text="@string/hora"
         android:layout_toEndOf="@+id/tv_lugar"
         android:gravity="center"
         android:layout_height="match_parent" />

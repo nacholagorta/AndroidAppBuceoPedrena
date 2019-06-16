@@ -20,7 +20,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.pccom.androidappbuceopedrena.BackgroundWorker;
+
 import com.example.pccom.androidappbuceopedrena.HttpRequest;
 import com.example.pccom.androidappbuceopedrena.R;
 import com.example.pccom.androidappbuceopedrena.Salida;
@@ -46,17 +46,18 @@ import java.util.HashMap;
  * A simple {@link Fragment} subclass.
  */
 public class SalidasFragment extends Fragment{
-    Button selectDate;
+
     TextView date;
     DatePickerDialog datePickerDialog;
     private static ProgressDialog mProgressDialog;
-
     private String jsonURL = "http://192.168.1.117/android_buceopedrena/get_salidas.php";
     private final int jsoncode = 1;
     private ListView listView;
     ArrayList<Salida> salidaArrayList;
-
     private SalidasAdapter salidasAdapter;
+
+    /*Fragmento con un List view para recoger los campos de la salida segun la fecha seleccionada*/
+
 
     public SalidasFragment() {
         // Required empty public constructor
@@ -76,6 +77,9 @@ public class SalidasFragment extends Fragment{
         date = view.findViewById(R.id.tvSelectedDate);
 
         listView = view.findViewById(R.id.list_salidas);
+
+        /* Si el Text View que almacena la fecha cambia su contenido, se llamará a la función fetchJSON()
+        pasandole or parámetro la fecha seleccionada*/
 
         date.addTextChangedListener(new TextWatcher() {
             @Override
@@ -100,6 +104,7 @@ public class SalidasFragment extends Fragment{
 
     }
 
+    /*Se recogen los datos en formato jSON con la url dada al principio de la clase*/
     @SuppressLint("StaticFieldLeak")
     private void fetchJSON(final String fecha){
 
@@ -108,7 +113,7 @@ public class SalidasFragment extends Fragment{
                 String response="";
                 HashMap<String, String> map=new HashMap<>();
                 try {
-                    HttpRequest req = new HttpRequest(jsonURL);
+
                     BufferedReader bufferedReader = null;
 
                     URL url = new URL(jsonURL);
@@ -116,6 +121,8 @@ public class SalidasFragment extends Fragment{
                     httpURLConnection.setRequestMethod("POST");
                     httpURLConnection.setDoOutput(true);
                     httpURLConnection.setDoInput(true);
+
+                    /*Se envia por método POST la información de la fecha seleccionada para que el php lo recoja*/
                     OutputStream outputStream = httpURLConnection.getOutputStream();
                     BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
                     String post_data = URLEncoder.encode("Fecha", "UTF-8")+"="+ URLEncoder.encode(fecha, "UTF-8");
@@ -125,19 +132,19 @@ public class SalidasFragment extends Fragment{
                     outputStream.close();
 
 
-
                     StringBuilder sb = new StringBuilder();
                     bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
-
                     String json;
                     while ((json = bufferedReader.readLine()) != null) {
                         sb.append(json + "\n");
                     }
                     bufferedReader.close();
                     httpURLConnection.disconnect();
-                    response = req.prepare(HttpRequest.Method.POST).withData(map).sendAndReadString();
-                    return sb.toString().trim();
+                    /*Otra manera de recoger datos JSON mapeandolos*/
+                    //HttpRequest req = new HttpRequest(jsonURL);
                     //response = req.prepare(HttpRequest.Method.POST).withData(map).sendAndReadString();
+                    return sb.toString().trim();
+
                 } catch (Exception e) {
                     response=e.getMessage();
                 }
@@ -151,7 +158,7 @@ public class SalidasFragment extends Fragment{
         }.execute();
     }
 
-
+/*Método para obtener la fecha con DateFormat y mostrar el Date Picker Dialog*/
     public void obtenerFecha(){
 
         final Calendar calendar = Calendar.getInstance();

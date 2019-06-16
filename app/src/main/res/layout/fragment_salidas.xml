@@ -18,7 +18,7 @@
             android:layout_height="27dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="48dp"
-            android:text="Instructor"
+            android:text="@string/instructor"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnDate" />
 
@@ -27,7 +27,7 @@
             android:layout_width="126dp"
             android:layout_height="27dp"
             android:layout_marginTop="44dp"
-            android:text="Hora"
+            android:text="@string/hora"
             app:layout_constraintStart_toEndOf="@+id/textView8"
             app:layout_constraintTop_toBottomOf="@+id/tvSelectedDate" />
 
@@ -38,7 +38,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="64dp"
             android:layout_marginEnd="16dp"
-            android:text="2019-06-13"
+            android:text="@string/fecha_seleccionada"
             android:textAlignment="center"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -52,7 +52,7 @@
             android:layout_height="62dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="44dp"
-            android:text="Seleccionar  fecha"
+            android:text="@string/seleccionar_fecha"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -75,7 +75,7 @@
             android:layout_width="126dp"
             android:layout_height="27dp"
             android:layout_marginTop="48dp"
-            android:text="Lugar"
+            android:text="@string/lugar"
             app:layout_constraintStart_toEndOf="@+id/textView11"
             app:layout_constraintTop_toBottomOf="@+id/btnDate" />
 
