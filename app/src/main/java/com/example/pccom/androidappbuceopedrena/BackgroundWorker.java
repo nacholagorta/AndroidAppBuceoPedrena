@@ -28,8 +28,8 @@ public class BackgroundWorker extends AsyncTask<String, Void, String> {
     protected String doInBackground(String... params) {
         String type = params[0];
 
-        String login_url = "http://192.168.1.117/android_buceopedrena/login.php";
-        String get_salidas_url = "http://192.168.1.117/android_buceopedrena/get_salidas.php";
+        String login_url = "https://apibuceo.azurewebsites.net/Aplicacion/login.php";
+        String get_salidas_url = "https://apibuceo.azurewebsites.net/Aplicacion/get_salidas.php";
         if (type.equals("login")){
             try {
                 String email = params[1];

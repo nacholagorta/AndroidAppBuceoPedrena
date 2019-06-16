@@ -50,7 +50,7 @@ public class SalidasFragment extends Fragment{
     TextView date;
     DatePickerDialog datePickerDialog;
     private static ProgressDialog mProgressDialog;
-    private String jsonURL = "http://192.168.1.117/android_buceopedrena/get_salidas.php";
+    private String jsonURL = "https://apibuceo.azurewebsites.net/Aplicacion/get_salidas.php";
     private final int jsoncode = 1;
     private ListView listView;
     ArrayList<Salida> salidaArrayList;

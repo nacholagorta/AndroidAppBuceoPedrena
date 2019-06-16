@@ -48,7 +48,7 @@ public class PerfilFragment extends Fragment {
 
     private static ProgressDialog mProgressDialog;
 
-    private String jsonURL = "http://192.168.1.117/android_buceopedrena/get_user_logged_info.php";
+    private String jsonURL = "https://apibuceo.azurewebsites.net/Aplicacion/get_user_logged_info.php";
     private final int jsoncode = 1;
     ArrayList<User> userArrayList;
     private UserAdapter userAdapter;
