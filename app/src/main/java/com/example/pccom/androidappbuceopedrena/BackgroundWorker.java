@@ -53,10 +53,14 @@ public class BackgroundWorker extends AsyncTask<String, Void, String> {
                 while ((line = bufferedReader.readLine()) != null){
                     result += line;
 
+
                 }
                 bufferedReader.close();
                 inputStream.close();
                 httpURLConnection.disconnect();
+                UserSingletonID classSingleton1 = UserSingletonID.getInstance();
+                classSingleton1.setInfo(result);
+                Log.d("qwerty",classSingleton1.getInfo().substring(13));
                 return result;
             } catch (MalformedURLException e) {
                 e.printStackTrace();

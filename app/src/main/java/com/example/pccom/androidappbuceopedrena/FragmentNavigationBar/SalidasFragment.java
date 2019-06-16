@@ -103,8 +103,6 @@ public class SalidasFragment extends Fragment{
     @SuppressLint("StaticFieldLeak")
     private void fetchJSON(final String fecha){
 
-        showSimpleProgressDialog(getContext(), "Loading...","Fetching Json",false);
-
         new AsyncTask<Void, Void, String>(){
             protected String doInBackground(Void[] params) {
                 String response="";

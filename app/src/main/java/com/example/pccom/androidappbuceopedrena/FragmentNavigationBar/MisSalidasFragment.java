@@ -14,7 +14,7 @@ import com.example.pccom.androidappbuceopedrena.R;
  */
 public class MisSalidasFragment extends Fragment {
 
-
+/*MisSalidas en proceso*/
     public MisSalidasFragment() {
         // Required empty public constructor
     }

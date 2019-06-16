@@ -7,6 +7,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,6 +23,7 @@ import com.example.pccom.androidappbuceopedrena.Salida;
 import com.example.pccom.androidappbuceopedrena.SalidasAdapter;
 import com.example.pccom.androidappbuceopedrena.User;
 import com.example.pccom.androidappbuceopedrena.UserAdapter;
+import com.example.pccom.androidappbuceopedrena.UserSingletonID;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -52,7 +54,7 @@ public class PerfilFragment extends Fragment {
     private UserAdapter userAdapter;
     private ListView listView;
 
-
+/*Fragmento con un List view para recoger los campos del usuario actual*/
 
     public PerfilFragment() {
         // Required empty public constructor
@@ -69,10 +71,11 @@ public class PerfilFragment extends Fragment {
         return view;
     }
 
+    /*Se recogen los datos en formato jSON con la url dada al principio de la clase*/
     @SuppressLint("StaticFieldLeak")
     private void fetchJSON(){
 
-        //showSimpleProgressDialog(getContext(), "Loading...","Fetching Json",false);
+
 
         new AsyncTask<Void, Void, String>(){
             protected String doInBackground(Void[] params) {
@@ -81,12 +84,24 @@ public class PerfilFragment extends Fragment {
                 try {
                     HttpRequest req = new HttpRequest(jsonURL);
                     BufferedReader bufferedReader = null;
+                    UserSingletonID classSingleton1 = UserSingletonID.getInstance();
+                    Log.d("qwerty",classSingleton1.getInfo().substring(13));
+                    String userID =classSingleton1.getInfo().substring(13);
 
                     URL url = new URL(jsonURL);
                     HttpURLConnection httpURLConnection =(HttpURLConnection) url.openConnection();
                     httpURLConnection.setRequestMethod("POST");
                     httpURLConnection.setDoOutput(true);
                     httpURLConnection.setDoInput(true);
+
+                    OutputStream outputStream = httpURLConnection.getOutputStream();
+                    BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+                    String post_data = URLEncoder.encode("UserID", "UTF-8")+"="+ URLEncoder.encode(userID, "UTF-8");
+                    bufferedWriter.write(post_data);
+                    bufferedWriter.flush();
+                    bufferedWriter.close();
+                    outputStream.close();
+
                     StringBuilder sb = new StringBuilder();
                     bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
 
@@ -97,6 +112,7 @@ public class PerfilFragment extends Fragment {
                     bufferedReader.close();
                     httpURLConnection.disconnect();
                     response = req.prepare(HttpRequest.Method.POST).withData(map).sendAndReadString();
+
                     return sb.toString().trim();
                     //response = req.prepare(HttpRequest.Method.POST).withData(map).sendAndReadString();
                 } catch (Exception e) {
@@ -112,7 +128,7 @@ public class PerfilFragment extends Fragment {
         }.execute();
     }
 
-
+/*Si el JSON recibido es correcto, iniciará el volcado de datos desde la bbdd a la lista de este Fragment*/
     public void onTaskCompleted(String response, int serviceCode) {
         Log.d("responsejson", response.toString());
         switch (serviceCode) {
@@ -129,6 +145,7 @@ public class PerfilFragment extends Fragment {
         }
     }
 
+    /*Se asignan los valores recogidos del JSON a un objeto de tipo User*/
 
     public ArrayList<User> getInfo(String response) {
         ArrayList<User> userArrayList = new ArrayList<>();
@@ -159,7 +176,7 @@ public class PerfilFragment extends Fragment {
         return userArrayList;
     }
 
-
+    /*Comprobación de que el JSON no llegue vacio*/
     public boolean isSuccess(String response) {
 
         try {
@@ -177,6 +194,8 @@ public class PerfilFragment extends Fragment {
         return false;
     }
 
+
+    /*Cualquier error que provoque aparecerá en forma de Toast*/
     public String getErrorCode(String response) {
 
         try {
